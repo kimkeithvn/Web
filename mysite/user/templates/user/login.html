@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}我的网站|登录{% endblock %}
+{% block nav_home_active %}active{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-3  col-lg-4 col-lg-offset-4">
+                {% if not user.is_authenticated %}
+                    <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">登录</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {% for field in login_form %}
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                <p class="text-danger">{{ field.errors.as_text }}</p>
+                            {% endfor %}
+                            <div class="clearfix"></div>
+                            <a href="{% url 'forget_password'%}" class="forget_pwd">忘记密码?</a>
+                            <span class="pull-left text-danger">{{ login_form.non_field_errors }}</span>
+                            <input type="submit" value="登录" class="btn btn-primary pull-right">
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+                    <span>已登录，跳转到首页...</span>
+                    <script>
+                        window.location.href = '/';
+                    </script>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script_extend %}
+    <script>
+        $("#id_username_or_email").autocomplete({
+            delay: 0, //默认为300 毫秒，延迟显示设置。
+            autoFocus:true, //设置为true 时，第一个项目会自动被选定。
+            source: function (request, response) {
+                    var hosts = ["qq.com", "163.com", "263.com", "sina.com.cn", "gmail.com", "hotmail.com"];//邮箱域名集合
+
+                    var term = request.term; //获取用户输入的内容；
+                    var name = term;  //邮箱的用户名
+                    var host = "";   //邮箱的域名 例如qq.com
+                    var ix = term.indexOf('@'); //@的位置
+
+                    var result = []; //最终呈现的邮箱列表
+
+
+                    //当用户输入的数据（email）里存在@的时候，就重新给用户名和域名赋值
+
+                    if (ix > -1) { //如果@符号存在，就表示用户已经输入用户名了。
+                        name = term.slice(0, ix);
+                        host = term.slice(ix + 1);
+                    }
+
+                    if (name) { //如果name有值 即：不为空
+
+                        var getHosts = []; //根据用户名填写的域名我们在hosts里面找到对应的域名集合
+
+                        getHosts=  host ? ($.grep(hosts, function (val) { return val.indexOf(host) > -1 })) : hosts;
+
+                        result = $.map(getHosts, function (val) { //这个val就是getHosts里的每个域名元素。
+                            return name + "@" + val;
+                        });
+                    }
+                    result.unshift(term); // unshift方法的作用是：将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度
+
+                    response(result);
+
+                }
+            });
+    </script>
+{% endblock %}

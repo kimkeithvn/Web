@@ -1,0 +1,12 @@
+{% extends 'blog/blog_list.html' %}
+{% block title %}{{ blog_type.type_name }}{% endblock %}
+
+{% block blog_list_title %}
+    <a href="{% url 'blog_list' %}">
+        <button type="button" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-list-alt"></span>
+        </button>
+    </a>
+    分类：{{ blog_type.type_name }}
+{% endblock %}
+

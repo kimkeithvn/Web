@@ -1,0 +1,97 @@
+/*blog_list*/
+div.blog:not(:last-child){
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc
+}
+div.blog h3 {
+    margin-top: 0.5em;
+}
+div.blog ul.blog-info {
+    padding-left: 67%;
+    margin-bottom: 0
+}
+div.blog ul.blog-info li {
+    display: inline-block;
+}
+div.blog ul.blog-info div {
+    display: inline-block;
+}
+div.blog ul.blog-info span.glyphicon.glyphicon-time {
+    padding-left: 5px;
+    padding-right: 3px;
+}
+div.blog ul.blog-info span.glyphicon.glyphicon-book {
+    padding-left: 5px;
+    padding-right: 3px;
+}
+div.blog ul.blog-info span.glyphicon.glyphicon-pencil {
+    padding-left: 5px;
+    padding-right: 3px;
+}
+div.blog ul.blog-info span.glyphicon.glyphicon-heart {
+    padding-left: 5px;
+    padding-right: 3px;
+}
+div.blog ul.blog-info span.glyphicon.glyphicon-tags {
+    padding-left: 5px;
+    padding-right: 3px;
+}
+div.paginator  {
+    text-align: center;
+}
+
+/*blogs_with_type*/
+
+
+/* blog_detail */
+ul.blog-info-description {
+    margin-bottom: 2em;
+}
+ul.blog-info-description li{
+    display: inline-block;
+    margin-right: 2em;
+}
+div.blog-content {
+    text-indent: 2em;
+}
+div.like {
+    color: #337ab7;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5em 0.3em;
+}
+div.blog-main div.like {
+    margin-top: 2em;
+}
+div.like .active {
+    color: #f22;
+}
+div.blog-more p {
+    margin-top: 1em;
+}
+div.comment-area {
+    margin-top: 2em;
+}
+h3.comment-area-title {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5em;
+}
+div.django-ckeditor-widget {
+    width: 100%;
+}
+div.comment {
+    border-bottom: 1px dashed #cccccc;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+div.reply {
+    margin-left: 2em;
+}
+div#reply_content_container {
+    border: 1px solid #d1d1d1;
+    border-bottom: none;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    padding: 1em 1em 0.5em;
+}

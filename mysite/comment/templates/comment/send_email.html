@@ -1,0 +1,8 @@
+{% autoescape off %}
+{{ comment_user }}({{ comment_time }})
+<br>
+在《{{ comment_blog_title }}》下 回复：
+<br>
+{{ comment_text }}
+<a href="{{ blog_url }}">点击查看</a>
+{% endautoescape %}

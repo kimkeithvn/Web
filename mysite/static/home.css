@@ -1,0 +1,12 @@
+h3.home-content {
+    font-size: 300%;
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+div#chart-container {
+    margin: 0 auto;
+    min-width: 40em;
+    max-width: 50em;
+    height:20em;
+}
